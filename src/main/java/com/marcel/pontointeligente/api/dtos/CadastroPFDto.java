@@ -1,4 +1,6 @@
-package com.marcel.pontointeligente.apidtos;
+package com.marcel.pontointeligente.api.dtos;
+
+import java.util.Optional;
 
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotEmpty;
@@ -7,7 +9,7 @@ import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.br.CNPJ;
 import org.hibernate.validator.constraints.br.CPF;
 
-public class CadastroPJDto {
+public class CadastroPFDto {
 	
 	private Long id;
 	
@@ -27,15 +29,17 @@ public class CadastroPJDto {
 	@CPF(message = "CPF invãlido.")
 	private String cpf;
 	
-	@NotEmpty(message = "Razão SOcial não pode ser vazio.")
-	@Length(min = 5, max = 200, message = "Razaão social deve conter entre 5 e 200 caracteres.")
-	private String razaoSocial;
+	private Optional<String> valorHora = Optional.empty();
+	
+	private Optional<String> qtdHorasTrabalhoDia = Optional.empty();
+	
+	private Optional<String> qtdHorasAlmoco = Optional.empty();
 	
 	@NotEmpty(message = "CNPJ não pode se vazio.")
 	@CNPJ(message = "CNPJ inválido.")
 	private String cnpj;
 	
-	public CadastroPJDto() {	
+	public CadastroPFDto() {	
 	}
 
 	public Long getId() {
@@ -77,13 +81,29 @@ public class CadastroPJDto {
 	public void setCpf(String cpf) {
 		this.cpf = cpf;
 	}
-
-	public String getRazaoSocial() {
-		return razaoSocial;
+	
+	public Optional<String> getValorHora() {
+		return valorHora;
 	}
 
-	public void setRazaoSocial(String razaoSocial) {
-		this.razaoSocial = razaoSocial;
+	public void setValorHora(Optional<String> valorHora) {
+		this.valorHora = valorHora;
+	}
+
+	public Optional<String> getQtdHorasTrabalhoDia() {
+		return qtdHorasTrabalhoDia;
+	}
+
+	public void setQtdHorasTrabalhoDia(Optional<String> qtdHorasTrabalhoDia) {
+		this.qtdHorasTrabalhoDia = qtdHorasTrabalhoDia;
+	}
+
+	public Optional<String> getQtdHorasAlmoco() {
+		return qtdHorasAlmoco;
+	}
+
+	public void setQtdHorasAlmoco(Optional<String> qtdHorasAlmoco) {
+		this.qtdHorasAlmoco = qtdHorasAlmoco;
 	}
 
 	public String getCnpj() {
@@ -96,10 +116,8 @@ public class CadastroPJDto {
 
 	@Override
 	public String toString() {
-		return "CadastroPJDto [id=" + id + ", nome=" + nome + ", email=" + email + ", senha=" + senha + ", cpf=" + cpf
-				+ ", razaoSocial=" + razaoSocial + ", cnpj=" + cnpj + "]";
+		return "CadastroPFDto [id=" + id + ", nome=" + nome + ", email=" + email + ", senha=" + senha + ", cpf=" + cpf
+				+ ", valorHora=" + valorHora + ", qtdHorasTrabalhoDia=" + qtdHorasTrabalhoDia + ", qtdHorasAlmoco="
+				+ qtdHorasAlmoco + ", cnpj=" + cnpj + "]";
 	}
-	
-	
-
 }

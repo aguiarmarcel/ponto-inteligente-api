@@ -18,12 +18,12 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.marcel.pontointeligente.api.domain.Empresa;
 import com.marcel.pontointeligente.api.domain.Funcionario;
+import com.marcel.pontointeligente.api.dtos.CadastroPJDto;
 import com.marcel.pontointeligente.api.enums.PerfilEnum;
 import com.marcel.pontointeligente.api.response.Response;
 import com.marcel.pontointeligente.api.services.EmpresaService;
 import com.marcel.pontointeligente.api.services.FuncionarioService;
 import com.marcel.pontointeligente.api.utils.PasswordUtils;
-import com.marcel.pontointeligente.apidtos.CadastroPJDto;
 
 @RestController
 @RequestMapping("/api/cadastrar-pj")
@@ -42,6 +42,7 @@ public class CadastroPJController {
 	}
 	
 	/**
+	 * Cadastraum funcionário pessoa jurídica no sistema
 	 * 
 	 * @param cadastroPJDto
 	 * @param result
