@@ -7,7 +7,6 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Optional;
 
-import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.BDDMockito;
@@ -22,8 +21,6 @@ import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
-import org.springframework.test.web.servlet.setup.MockMvcBuilders;
-import org.springframework.web.context.WebApplicationContext;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -40,8 +37,8 @@ import com.marcel.pontointeligente.api.services.LancamentoService;
 @RunWith(SpringRunner.class)
 public class LancamentoControllerTest {
 
-	@Autowired
-	private WebApplicationContext context;
+	//@Autowired
+	//private WebApplicationContext context;
 	
 	@Autowired
 	private MockMvc mvc;
@@ -60,10 +57,10 @@ public class LancamentoControllerTest {
 	
 	private final SimpleDateFormat dateFormat = new SimpleDateFormat("YYYY-MM-dd HH:mm:ss");
 	
-	@Before
+	/*@Before
 	public void setUp() {
 		mvc = MockMvcBuilders.webAppContextSetup(context).build();
-	}
+	}*/
 	
 	@Test
 	@WithMockUser
@@ -99,7 +96,7 @@ public class LancamentoControllerTest {
 	}
 	
 	@Test
-	@WithMockUser(username = "admin@admin.com", roles = {"ADMIN"})
+	@WithMockUser(roles = {"ADMIN"})
 	public void testRemoverLancamento() throws Exception {
 		BDDMockito.given(this.lancamentoService.buscarPorId(Mockito.anyLong())).willReturn(Optional.of(new Lancamento()));
 		

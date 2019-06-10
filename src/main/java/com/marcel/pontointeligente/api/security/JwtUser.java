@@ -23,57 +23,42 @@ public class JwtUser implements UserDetails{
 		this.authorities = authorities;
 	}
 
-	
-	@Override	
-	public Collection<? extends GrantedAuthority> getAuthorities() {
-		return authorities;
-	}
-
-
 	public Long getId() {
 		return id;
 	}
 
-	
-	@Override
-	public String getPassword() {
-		return password;
-	}
-
-	
 	@Override
 	public String getUsername() {
 		return username;
 	}
 
-
 	@Override
 	public boolean isAccountNonExpired() {
-		// TODO Auto-generated method stub
-		return false;
+		return true;
 	}
-
-
 
 	@Override
 	public boolean isAccountNonLocked() {
-		// TODO Auto-generated method stub
-		return false;
+		return true;
 	}
-
-
 
 	@Override
 	public boolean isCredentialsNonExpired() {
-		// TODO Auto-generated method stub
-		return false;
+		return true;
 	}
 
+	@Override
+	public String getPassword() {
+		return password;
+	}
 
+	@Override
+	public Collection<? extends GrantedAuthority> getAuthorities() {
+		return authorities;
+	}
 
 	@Override
 	public boolean isEnabled() {
-		// TODO Auto-generated method stub
-		return false;
-	}
+		return true;
+}
 }

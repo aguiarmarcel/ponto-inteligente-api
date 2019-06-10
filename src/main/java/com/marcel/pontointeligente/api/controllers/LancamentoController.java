@@ -138,7 +138,7 @@ public class LancamentoController {
 	 * @throws ParseException
 	 */
 	@RequestMapping(value="/{id}", method=RequestMethod.PUT)
-	private ResponseEntity<Response<LancamentoDto>> atualizar(@PathVariable("id") Long id, 
+	public ResponseEntity<Response<LancamentoDto>> atualizar(@PathVariable("id") Long id,
 			@Valid @RequestBody LancamentoDto lancamentoDto, BindingResult result) throws ParseException {
 		
 		log.info("Atualizando lançamento: {}", lancamentoDto.toString());
@@ -146,13 +146,13 @@ public class LancamentoController {
 		validarFuncionario(lancamentoDto, result);
 		lancamentoDto.setId(Optional.of(id));
 		Lancamento lancamento = this.converterDtoParaLancamento(lancamentoDto, result);
-		
+
 		if (result.hasErrors()) {
 			log.error("Erro validando lançamento: {}", result.getAllErrors());
 			result.getAllErrors().forEach(error -> response.getErrors().add(error.getDefaultMessage()));
 			return ResponseEntity.badRequest().body(response);
 		}
-		
+
 		lancamento = this.lancamentoService.persistir(lancamento);
 		response.setData(this.converterLancamentoDto(lancamento));
 		return ResponseEntity.ok(response);

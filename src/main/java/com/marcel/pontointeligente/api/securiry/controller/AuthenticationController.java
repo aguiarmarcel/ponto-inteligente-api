@@ -18,9 +18,9 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.marcel.pontointeligente.api.response.Response;
@@ -54,7 +54,8 @@ public class AuthenticationController {
 	 * @return ResponseEntity<Response<TokenDto>>
 	 * @throws AuthenticationException
 	 */
-	@PostMapping
+	
+	@RequestMapping(method=RequestMethod.POST)
 	public ResponseEntity<Response<TokenDto>> gerarTokenJwt(
 			@Valid @RequestBody JwtAuthenticationDto authenticationDto, BindingResult result)
 			throws AuthenticationException {
@@ -84,7 +85,7 @@ public class AuthenticationController {
 	 * @param request
 	 * @return ResponseEntity<Response<TokenDto>>
 	 */
-	@PostMapping(value = "/refresh")
+	@RequestMapping(value = "/refresh", method=RequestMethod.POST)
 	public ResponseEntity<Response<TokenDto>> gerarRefreshTokenJwt(HttpServletRequest request) {
 		log.info("Gerando refresh token JWT.");
 		Response<TokenDto> response = new Response<TokenDto>();
