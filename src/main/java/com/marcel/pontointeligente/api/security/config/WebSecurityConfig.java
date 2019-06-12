@@ -16,7 +16,7 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 
-import com.marcel.pontointeligente.api.security.JwtAuthenticationEntryPoint​​;
+import com.marcel.pontointeligente.api.security.JwtAuthenticationEntryPoint;
 import com.marcel.pontointeligente.api.security.filters.JwtAuthenticationTokenFilter;
 
 @Configuration
@@ -25,7 +25,7 @@ import com.marcel.pontointeligente.api.security.filters.JwtAuthenticationTokenFi
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
 	@Autowired
-	private JwtAuthenticationEntryPoint​​ unauthorizedHandler;
+	private JwtAuthenticationEntryPoint unauthorizedHandler;
 
 	@Autowired
 	private UserDetailsService userDetailsService;
