@@ -2,7 +2,6 @@ package com.marcel.pontointeligente.api.security;
 
 import java.io.IOException;
 
-import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -15,7 +14,7 @@ public class JwtAuthenticationEntryPoint​​ implements AuthenticationEntryPoi
 
 	@Override
 	public void commence(HttpServletRequest request, HttpServletResponse response,
-			AuthenticationException authException) throws IOException, ServletException {
+			AuthenticationException authException) throws IOException{
 		response.sendError(HttpServletResponse.SC_UNAUTHORIZED, 
 				"Acesso negado. Você deve estar autenticado no sistema para acessar a URL solicitada.");		
 	}
