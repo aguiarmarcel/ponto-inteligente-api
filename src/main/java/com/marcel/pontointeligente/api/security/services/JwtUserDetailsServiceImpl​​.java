@@ -1,4 +1,4 @@
-package com.marcel.pontointeligente.api.security.services.impl;
+package com.marcel.pontointeligente.api.security.services;
 
 import java.util.Optional;
 
