@@ -13,7 +13,7 @@ import com.marcel.pontointeligente.api.security.JwtUserFactory;
 import com.marcel.pontointeligente.api.services.FuncionarioService;
 
 @Service
-public class JwtUserDetailsServiceImpl​​ implements UserDetailsService{
+public class JwtUserDetailsServiceImpl implements UserDetailsService{
 
 	@Autowired
 	private FuncionarioService funcionarioService;
