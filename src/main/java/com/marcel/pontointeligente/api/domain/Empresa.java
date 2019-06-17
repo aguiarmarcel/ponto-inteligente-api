@@ -44,7 +44,6 @@ public class Empresa implements Serializable{
 	private List<Funcionario> funcionarios;
 	
 	public Empresa () {
-		
 	}
 
 	public Long getId() {
